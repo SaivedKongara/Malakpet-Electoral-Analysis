@@ -1,0 +1,15 @@
+pandas
+requests
+google-genai
+tenacity
+openpyxl
+pdf2image
+Pillow
+python-dotenv
+ 
+# Notes:
+# - pdf2image also requires the poppler-utils system package
+#   (e.g. `apt-get install poppler-utils` / `brew install poppler`).
+# - Requires a Gemini API key set as GEMINI_API_KEY (or similar) in a
+#   local .env file, loaded via python-dotenv — do not commit the .env file.
+ 
