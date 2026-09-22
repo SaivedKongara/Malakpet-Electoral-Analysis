@@ -58,13 +58,16 @@ Ecological inference caveat: Demographic–vote correlations are area-level stat
 
 ## 7. Repository Structure
 
- ```
-├── 01_raw_electoral_rolls/   # Redacted sample source PDFs
-├── 02_pipeline/              # Gemini OCR extraction scripts + sample output
-├── 03_booth_wise_raw/        # Raw extracted booth-level data, pre-cleaning
-├── 04_final_analysis/        # Final Excel workbook (PDF export) + methodology notes
-├── 05_dashboard/             # Power BI roadmap and screenshots (in progress)
-└── assets/                   # Diagrams, screenshots
+```
+├── 01_raw_source_documents/
+│   ├── electoral_rolls/        # REDACTED sample pages only — contains personal voter data
+│   └── booth_results_pdfs/     # Full Form 20 scans, all 3 years — public data, no redaction needed
+├── 02_pipeline/                # Gemini OCR extraction notebook/scripts
+├── 03_pipeline_raw_output/     # Unmodified Excel output straight from the pipeline
+├── 04_working_review/          # Lightly modified/reviewed master — not yet fully cleaned
+├── 05_final_analysis/          # Cleaned master + final analysis sheets (Area Analysis, Seat Grading, Swing Voter)
+├── 06_dashboard/               # Power BI roadmap and screenshots (in progress)
+└── assets/                     # Diagrams, screenshots
 ```
 
 ## 9. Dashboard — In Progress
