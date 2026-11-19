@@ -89,7 +89,7 @@ The extraction pipeline required active engineering trade-offs to handle real-wo
 ---
 
 ## 8. How to Interact with the Tableau Public Dashboard
-Follow this three-step flow to explore any polling station from map location down to voter demographics:
+> 🎥 **Visual Walkthrough:** New to the dashboard? **[Watch the quick video walkthrough on LinkedIn](https://lnkd.in/p/d-76JqhP)**  to see the interactive drillthrough flow in action, or follow the steps below:
 
 1. **Select a Polling Station (`Map & Performance` view):**
    * Look at the **horizontal bar chart** on the **right side** of the landing page listing each polling station address.
@@ -99,8 +99,6 @@ Follow this three-step flow to explore any polling station from map location dow
    * The dashboard automatically redirects you to the **Vote Share & Margin** view for that selected polling station, displaying multi-cycle (2014–2023) vote shares and `BJP Margin %`.
 3. **Explore `Demographics`:**
    * Navigate to the **Demographics** tab/view to examine the voter profile for that same polling station location, including age/gender splits, household structure (`Household Type` calculated field), and demographic concentration metrics.
-
----
 
 ## 9. Tech Stack
 `Python` · `pandas` · `pdf2image` · `Gemini Vision API` · `Excel` · `Tableau Public`
