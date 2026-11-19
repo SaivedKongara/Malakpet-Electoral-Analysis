@@ -2,7 +2,7 @@
 
 A data pipeline and analytical framework for booth-level electoral analysis of the Malakpet Assembly Constituency, Hyderabad, Telangana — built as a pilot on 20 of the constituency's ~300 polling booths, designed to scale to the full constituency.
 
-🔗 **[View Live Interactive Tableau Public Dashboard](https://public.tableau.com:9443/views/MalakpetDashboard/MapPerformance?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)**
+🔗 **[View Live Interactive Tableau Public Dashboard](https://public.tableau.com/app/profile/k.saived/vizzes)**
 
 🔗 **[Dashboard Walkthrough Video On Linkdin](https://lnkd.in/p/d-76JqhP)**
 
