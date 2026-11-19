@@ -2,7 +2,7 @@
 
 A data pipeline and analytical framework for booth-level electoral analysis of the Malakpet Assembly Constituency, Hyderabad, Telangana — built as a pilot on 20 of the constituency's ~300 polling booths, designed to scale to the full constituency.
 
-🔗**[View Live Interactive Tableau Public Dashboard](https://public.tableau.com/shared/DHC34HBDK?:display_count=n&:origin=viz_share_link)**
+🔗 **[View Live Interactive Tableau Public Dashboard](https://public.tableau.com/shared/DHC34HBDK?:display_count=n&:origin=viz_share_link)** 
 
 ---
 
@@ -27,11 +27,11 @@ For this reason, all cross-election comparison in this project — area grading,
 
 ---
 
-## 3. Pipeline Architecture
+## 3. Pipeline Architecture & Restricted Code Access
 ```text
 Raw electoral roll PDFs (scanned)
         ↓
-Gemini Vision OCR extraction (Python)
+Gemini Vision OCR extraction (Python — Private Repo)
         ↓
 Structured booth-level voter data (JSON/CSV)
         ↓
@@ -39,6 +39,12 @@ Excel — cleaning, area grading, volatility analysis, 2023 turnout modeling
         ↓
 Tableau Public — three-view interactive dashboard
 ```
+
+### 🔒 Source Code Access (Restricted)
+To prevent unauthorized reuse of the OCR extraction pipeline and custom Gemini prompts, the Jupyter Notebook (`02_pipeline/`) is maintained in a **private repository**.
+
+* **Recruiters & Hiring Managers:** If you would like to review the Python source code for evaluation, **[Request Repository Access via Email](mailto:saivedkongara@://gmail.com)** *(include your GitHub username to receive temporary read access)*.
+* **License:** All Rights Reserved. View access is granted strictly for hiring and portfolio evaluation; copying, redistribution, or commercial use is not permitted.
 
 ---
 
@@ -71,39 +77,34 @@ The extraction pipeline required active engineering trade-offs to handle real-wo
 ## 7. Repository Structure
 ```text
 ├── 01_raw_source_documents/
-│   ├── electoral_rolls/        # REDACTED sample pages only — contains personal voter data
-│   └── booth_files/            # Full Form 20 scans, all 3 years — public data, no redaction needed
-├── 02_pipeline/                # Gemini OCR extraction notebook/scripts
-├── 03_pipeline_raw_output/     # Unmodified Excel output straight from the pipeline
-├── 04_working_review/          # Malakpet_2014/2018/2023_pdf_to_xlsx.xlsx (raw PDF→Excel per year)
-│                               # + Cleaned_Raw_Output.xlsx (flags fixed, intermediate review)
-├── 05_final_analysis/          # Cleaned master + final analysis sheets (Area Analysis, Area Grading, Volatility)
-├── 06_dashboard/               # Tableau Public dashboard link, workbook notes, and calculated field docs
-├── assets/                     # Pipeline diagrams and Tableau dashboard screenshots
-├── requirements.txt            # Python dependencies for 02_pipeline
-└── README.md
+│   ├── electoral_rolls/        # REDACTED sample pages only — personal voter PII removed
+│   └── booth_files/            # Public Form 20 scans (2014, 2018, 2023)
+├── 02_pipeline/                # [Private Repo] Gemini OCR extraction notebook (access on request)
+├── 03_pipeline_raw_output/     # Unmodified Excel output straight from the extraction pipeline
+├── 04_working_review/          # Raw PDF-to-Excel conversions per year + intermediate cleaned review file
+├── 05_final_analysis/          # Cleaned master dataset + final Area Analysis, Grading & Volatility sheets
+└── README.md                   # Project documentation, methodology & Tableau dashboard guide
 ```
 
 ---
 
-## 8. Setup
-```bash
-pip install -r requirements.txt
-```
-`pdf2image` also requires the `poppler-utils` system package (`apt-get install poppler-utils` on Linux, `brew install poppler` on macOS). The extraction notebook expects a Gemini API key stored in a local `.env` file (excluded via `.gitignore`) and loaded via `python-dotenv`.
+## 8. How to Interact with the Tableau Public Dashboard
+Follow this three-step flow to explore any polling station from map location down to voter demographics:
+
+1. **Select a Polling Station (`Map & Performance` view):**
+   * Look at the **horizontal bar chart** on the **right side** of the landing page listing each polling station address.
+   * Click on any polling station bar/address you want to inspect. This highlights its exact **pin location** on the **Malakpet constituency map** on the **left side**.
+2. **Drill Through to `Vote Share & Margin`:**
+   * Click directly on the **highlighted pin** on the constituency map.
+   * The dashboard automatically redirects you to the **Vote Share & Margin** view for that selected polling station, displaying multi-cycle (2014–2023) vote shares and `BJP Margin %`.
+3. **Explore `Demographics`:**
+   * Navigate to the **Demographics** tab/view to examine the voter profile for that same polling station location, including age/gender splits, household structure (`Household Type` calculated field), and demographic concentration metrics.
 
 ---
 
-## 9. Interactive Tableau Public Dashboard
-The three-view Tableau Public dashboard consolidates spatial, historical, and demographic layers into a single campaign decision tool:
-* **View 1 — Map & Performance:** Constituency map with polling-station pins showing hold-strength grades and area volatility classifications.
-* **View 2 — Vote Share & Margin:** Multi-cycle (2014–2023) vote-share trends and calculated `BJP Margin %` across polling areas.
-* **View 3 — Demographics:** Booth-area voter segmentation, household structure (`Household Type` calculated field), and demographic concentration metrics.
-
----
-
-## 10. Tech Stack
+## 9. Tech Stack
 `Python` · `pandas` · `pdf2image` · `Gemini Vision API` · `Excel` · `Tableau Public`
+
 
 
 
